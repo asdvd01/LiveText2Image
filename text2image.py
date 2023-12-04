@@ -16,7 +16,7 @@ def text2image(prompt):
     pipe = AutoPipelineForText2Image.from_pretrained("stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16")
     pipe.to("mps")     #Tested on Intel Macbook Pro 16" with 16GB RAM. 
     #Run this file on Intel Macbook using   `PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 python text2image.py` 
-    #pipe.to("cuda")   #Use this if you have a GPU
+    #pipe.to("cuda")   #Use this if you have a NVIDIA GPU
     image = pipe(prompt=prompt, num_inference_steps=1, guidance_scale=0.0).images[0]
     return image
 
