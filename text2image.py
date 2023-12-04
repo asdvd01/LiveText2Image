@@ -20,7 +20,8 @@ def text2image(prompt):
     image = pipe(prompt=prompt, num_inference_steps=1, guidance_scale=0.0).images[0]
     return image
 
-interface = gr.Interface(fn=text2image, inputs="text", outputs="image") #TODO: gr.Interface(fn=text2image, inputs="text", outputs="image", live=True)
+interface = gr.Interface(fn=text2image, inputs="text", outputs="image") 
+#TODO: gr.Interface(fn=text2image, inputs="text", outputs="image", live=True)
 interface.launch()
 
 
